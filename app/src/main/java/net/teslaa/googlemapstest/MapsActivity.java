@@ -1,5 +1,8 @@
 package net.teslaa.googlemapstest;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -7,6 +10,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.GroundOverlay;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -42,7 +46,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(35.6892, 51.3890);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Tehran"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        mMap.setMaxZoomPreference(20gf);
+        mMap.setMaxZoomPreference(20f);
         mMap.setMinZoomPreference(10f);
+        mMap.setBuildingsEnabled(true);
+        mMap.setTrafficEnabled(false);
     }
 }
